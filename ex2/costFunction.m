@@ -20,11 +20,16 @@ grad = zeros(size(theta));
 % Note: grad should have the same dimensions as theta
 %
 
-for i=1:m
-  hi = sigmoid( X(i,:)*theta );
-  J = J - y(i)*log(hi) - (1-y(i))*log(1 - hi);
-  grad = grad + (hi - y(i))*X(i,:)';
-end
+h = sigmoid(X*theta); % it is a vector; h of each training sample
+J = -dot(log(h), y) - dot(1-y,log(1-h));
+grad = X'*(h-y);
+
+
+%for i=1:m
+%  hi = sigmoid( X(i,:)*theta );
+%  J = J - y(i)*log(hi) - (1-y(i))*log(1 - hi);
+%  grad = grad + (hi - y(i))*X(i,:)';
+%end
 
 J = J/m;
 grad = grad/m;
