@@ -21,7 +21,7 @@ h = sigmoid(X*theta); % it is a vector; h of each training sample
 J = -dot(log(h), y) - dot(1-y,log(1-h));
 grad = X'*(h-y);
 
-J = J + lambda* norm( theta(2:end) )^2;
+J = J + lambda* norm( theta(2:end) )^2/2;
 grad(2:end) = grad(2:end) + lambda*theta(2:end);
 
 %for i=1:m
