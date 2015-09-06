@@ -30,9 +30,9 @@ X = [ones(m, 1) X];
 %       for each row.
 %       
 
-
-
-
+Q = all_theta*X'; % line = label, column = sample
+[~,p] = max(sigmoid(Q));
+p = p';
 
 
 
